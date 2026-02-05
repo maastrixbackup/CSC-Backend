@@ -5,7 +5,7 @@ const cors = require('cors');
 const authRoutes = require("./routes/authRoutes");
 const aiRoutes = require("./routes/aiRoutes");
 const userRoutes = require("./routes/userRoutes");
-// const logRoutes = require("./routes/logRoutes");
+const logRoutes = require("./routes/logRoutes");
 
 const app = express();
 
@@ -25,6 +25,6 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/ai', aiRoutes);
 app.use('/api/user', userRoutes);
-// app.use('/logs', logRoutes);
+app.use('/api/logs', logRoutes);
 
 module.exports = app;

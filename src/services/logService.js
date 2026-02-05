@@ -29,3 +29,56 @@ exports.logAI = async (data) => {
     ];
     await db.query(query, values);
 };
+
+exports.getLogs = async () => {
+    const query = `
+        SELECT
+            id,
+            user_id,
+            model_identifier,
+            prompt_version,
+            tool_invoked,
+            output_classification,
+            refusal_flag,
+            prompt,
+            output,
+            status,
+            error_message,
+            created_at
+        FROM ai_logs
+        ORDER BY created_at DESC
+    `;
+
+    const [rows] = await db.query(query);
+    return rows;
+};
+
+// exports.getLogs = async ({ limit, offset }) => {
+//     const query = `
+//         SELECT
+//             id,
+//             user_id,
+//             model_identifier,
+//             prompt_version,
+//             tool_invoked,
+//             output_classification,
+//             refusal_flag,
+//             prompt,
+//             output,
+//             status,
+//             error_message,
+//             created_at
+//         FROM ai_logs
+//         ORDER BY created_at DESC
+//         LIMIT ? OFFSET ?
+//     `;
+
+//     const [rows] = await db.query(query, [limit, offset]);
+//     return rows;
+// };
+
+exports.countAll = async () => {
+    const query = `SELECT COUNT(*) AS total FROM ai_logs`;
+    const [rows] = await db.query(query);
+    return rows[0].total;
+};
