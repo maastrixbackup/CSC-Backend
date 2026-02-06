@@ -9,7 +9,7 @@ exports.draftEmail = async (req, res) => {
 
         await logService.logAI({
             user_id: req.user.id,
-            model_identifier: 'gpt-4o-mini',
+            model_identifier: 'gpt-5.2',
             prompt_version: 'v1_draft_email',
             tool_invoked: 'draft_email',
             output_classification: 'draft',
@@ -30,7 +30,7 @@ exports.draftEmail = async (req, res) => {
     } catch (err) {
         await logService.logAI({
             user_id: req.user.id,
-            model_identifier: 'gpt-4o-mini',
+            model_identifier: 'gpt-5.2',
             prompt_version: 'v1_draft_email',
             tool_invoked: 'draft_email',
             output_classification: 'refusal',
