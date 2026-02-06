@@ -1,5 +1,5 @@
 const db = require('../config/db');
-exports.logAI = async (data) => {
+const logAI = async (data) => {
     const query = `
     INSERT INTO ai_logs (
       user_id,
@@ -30,7 +30,7 @@ exports.logAI = async (data) => {
     await db.query(query, values);
 };
 
-exports.getLogs = async () => {
+const getLogs = async () => {
     const query = `
         SELECT
             id,
@@ -77,8 +77,10 @@ exports.getLogs = async () => {
 //     return rows;
 // };
 
-exports.countAll = async () => {
+const countAll = async () => {
     const query = `SELECT COUNT(*) AS total FROM ai_logs`;
     const [rows] = await db.query(query);
     return rows[0].total;
 };
+
+module.exports = { logAI, getLogs, countAll };

@@ -10,8 +10,8 @@ exports.generateDraft = async (prompt) => {
     }
 
     const response = await openai.responses.create({
-        // model: 'gpt-5.2',
-        model: 'gpt-4o-mini',
+        model: 'gpt-5.2',
+        // model: 'gpt-4o-mini',
         input: prompt
     });
 
