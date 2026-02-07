@@ -4,6 +4,7 @@ const logAI = async (data) => {
     INSERT INTO ai_logs (
       user_id,
       model_identifier,
+      prompt_id,
       prompt_version,
       tool_invoked,
       output_classification,
@@ -12,12 +13,13 @@ const logAI = async (data) => {
       output,
       status,
       error_message
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
     const values = [
         data.user_id,
         data.model_identifier || null,
+        data.prompt_id || null,
         data.prompt_version || null,
         data.tool_invoked || null,
         data.output_classification || 'draft',
@@ -36,6 +38,7 @@ const getLogs = async () => {
             id,
             user_id,
             model_identifier,
+            prompt_id,
             prompt_version,
             tool_invoked,
             output_classification,
