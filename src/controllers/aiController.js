@@ -41,6 +41,7 @@ exports.draftEmail = async (req, res) => {
                 output: null,
                 status: 'error'
             });
+            
 
             return res.status(403).json({
                 success: false,

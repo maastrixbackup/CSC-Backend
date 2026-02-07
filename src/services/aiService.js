@@ -23,6 +23,7 @@ exports.generateDraft = async (promptId) => {
             tool: promptConfig.tool
         };
     }
+    
 
     // if (checkGuardrails(promptText)) {
     //     const err = new Error('Disallowed content detected by guardrails');

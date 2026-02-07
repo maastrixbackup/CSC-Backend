@@ -15,6 +15,7 @@ const logAI = async (data) => {
       error_message
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
+    
 
     const values = [
         data.user_id,
