@@ -41,11 +41,11 @@ exports.draftEmail = async (req, res) => {
                 output: null,
                 status: 'error'
             });
-            
+
 
             return res.status(403).json({
                 success: false,
-                message: 'This request is not allowed under Phase 1 rules.'
+                message: 'This request is not allowed under ClaimScope Consulting, LLC (CSC).'
             });
         }
 
