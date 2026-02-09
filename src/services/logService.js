@@ -10,12 +10,18 @@ const logAI = async (data) => {
       output_classification,
       refusal_flag,
       prompt,
+      audience,
+      vendor_type,
+      template_pack,
+      guardrail_version,
+      policy_mode,
+      export_intent,
       output,
       status,
       error_message
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
-    
+
 
     const values = [
         data.user_id,
@@ -26,6 +32,13 @@ const logAI = async (data) => {
         data.output_classification || 'draft',
         data.refusal_flag ? 1 : 0,
         data.prompt || null,
+        data.audience || null,
+        data.vendorType || null,
+        data.templatePack || null,
+        data.guardrail_version || null,
+        data.policy_mode || null,
+        data.export_intent || null,
+
         data.output || null,
         data.status || null,
         data.error_message || null
