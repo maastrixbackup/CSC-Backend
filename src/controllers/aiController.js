@@ -30,6 +30,15 @@ exports.run = async (req, res) => {
             status: result.meta.refusal_flag ? 'blocked' : 'success'
         });
 
+        if (result.meta.refusal_flag) {
+            return res.status(200).json({
+                success: false,
+                refusal: true,
+                refusal_reason_code: result.meta.refusal_reason_code,
+                message: result.output
+            });
+        }
+
         return res.json({
             success: true,
             draft: result.output,
