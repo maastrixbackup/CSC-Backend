@@ -9,7 +9,9 @@ const logAI = async (data) => {
       tool_invoked,
       output_classification,
       refusal_flag,
+      refusal_reason_code,
       prompt,
+      track_identifier,
       audience,
       vendor_type,
       template_pack,
@@ -19,7 +21,7 @@ const logAI = async (data) => {
       output,
       status,
       error_message
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
 
@@ -31,7 +33,9 @@ const logAI = async (data) => {
         data.tool_invoked || null,
         data.output_classification || 'draft',
         data.refusal_flag ? 1 : 0,
+        data.refusal_reason_code || null,
         data.prompt || null,
+        data.track_identifier || null,
         data.audience || null,
         data.vendorType || null,
         data.templatePack || null,
@@ -57,7 +61,9 @@ const getLogs = async () => {
             tool_invoked,
             output_classification,
             refusal_flag,
+            refusal_reason_code,
             prompt,
+            track_identifier,
             audience,
             vendor_type,
             template_pack,
