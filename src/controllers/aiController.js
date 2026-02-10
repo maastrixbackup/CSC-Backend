@@ -32,7 +32,7 @@ exports.run = async (req, res) => {
 
         return res.json({
             success: true,
-            output: result.output,
+            draft: result.output,
             // meta: result.meta
         });
 
